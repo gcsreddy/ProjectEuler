@@ -7,5 +7,13 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed 
 four million, find the sum of the even-valued terms.
 
-}
+-}
+
+import Data.List
+
+main = do 
+  putStrLn .show $ sum $ filter even $ takeWhile (<4000000) fibs
+
+fibs :: [Integer]
+fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
 
